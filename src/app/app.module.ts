@@ -15,6 +15,10 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { GameComponent } from './components/game/game.component';
 import {AuthGuard} from './guards/auth.guard';
 import { NotificationComponent } from './components/notification/notification.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import {AngularDraggableModule} from 'angular2-draggable';
+import { ScoresComponent } from './components/scores/scores.component';
+import {ScoreService} from './services/score.service';
 
 
 @NgModule({
@@ -22,7 +26,9 @@ import { NotificationComponent } from './components/notification/notification.co
     AppComponent,
     LoginPageComponent,
     GameComponent,
-    NotificationComponent
+    NotificationComponent,
+    NavigationComponent,
+    ScoresComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +36,10 @@ import { NotificationComponent } from './components/notification/notification.co
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularDraggableModule
   ],
-  providers: [NotifyService, Auth0Service, AuthGuard],
+  providers: [NotifyService, Auth0Service, AuthGuard, ScoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

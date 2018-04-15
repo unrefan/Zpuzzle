@@ -1,9 +1,4 @@
 <div class="">
   <app-notification></app-notification>
   <button (click)="loginWithGoogle()">Login with google</button>
-  <button (click)="logout()">Log out</button>
-  <div *ngIf="user">
-    <h3>{{user.displayName}}</h3>
-    <img [src]="user.photoURL" alt="">
-  </div>
 </div>

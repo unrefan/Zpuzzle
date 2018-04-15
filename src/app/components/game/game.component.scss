@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+}
+
+.puzzle {
+  width: 400px;
+  height: 400px;
+
+  &__cell {
+    background-color: aliceblue;
+  }
+
+  &__piece-holder {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    margin-top: 30px;
+  }
+
+  &__piece {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    background: url("../../../assets/img/kotel.jpg") no-repeat;
+  }
+}

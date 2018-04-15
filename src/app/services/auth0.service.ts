@@ -39,6 +39,7 @@ export class Auth0Service {
     this.afAuth.auth.signInWithPopup(provider).then( (credential) => {
       this.notify.update('Welcome!!!', 'success');
       this.updateUser(credential.user);
+      this.router.navigate(['game']);
     }).catch((error) => this.handleError(error) );
   }
 
