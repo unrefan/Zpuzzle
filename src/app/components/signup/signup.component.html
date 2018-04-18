@@ -1,0 +1,18 @@
+<app-notification></app-notification>
+<form [formGroup]="signupGroup">
+  <label for="">Username
+    <input type="text" placeholder="Enter your email" formControlName="username" required />
+  </label>
+  <label for="">Email
+    <input type="email" placeholder="Enter your email" formControlName="email" required />
+  </label>
+  <label for="">Password
+    <input type="password" placeholder="Enter your password" formControlName="password" required />
+  </label>
+  <label for="">Password
+    <input type="password" placeholder="Enter your password" formControlName="confirm_password" required />
+  </label>
+  <button (click)="signup()">Sign up</button>
+</form>
+<p>{{signupGroup.value | json}}</p>
+<p>{{signupGroup.status | json}}</p>

@@ -19,6 +19,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import {AngularDraggableModule} from 'angular2-draggable';
 import { ScoresComponent } from './components/scores/scores.component';
 import {ScoreService} from './services/score.service';
+import { SignupComponent } from './components/signup/signup.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import {ScoreService} from './services/score.service';
     GameComponent,
     NotificationComponent,
     NavigationComponent,
-    ScoresComponent
+    ScoresComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import {ScoreService} from './services/score.service';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularDraggableModule
+    AngularDraggableModule,
+    ReactiveFormsModule
   ],
   providers: [NotifyService, Auth0Service, AuthGuard, ScoreService],
   bootstrap: [AppComponent]

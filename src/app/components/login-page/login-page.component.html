@@ -1,4 +1,16 @@
 <div class="">
   <app-notification></app-notification>
+  <form [formGroup]="loginGroup">
+    <label for="">Email
+      <input type="email" placeholder="Enter your email" formControlName="email" required />
+    </label>
+    <label for="">Password
+      <input type="password" placeholder="Enter your password" formControlName="password" required />
+    </label>
+    <button (click)="login()">Login</button>
+  </form>
+  <p>{{loginGroup.value | json}}</p>
+  <p>{{loginGroup.status | json}}</p>
+  <a href="/registration" class="signup">Sign Up</a>
   <button (click)="loginWithGoogle()">Login with google</button>
 </div>
