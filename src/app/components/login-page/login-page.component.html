@@ -1,4 +1,4 @@
-<div class="">
+<!-- <div class="">
   <app-notification></app-notification>
   <form [formGroup]="loginGroup">
     <label for="">Email
@@ -7,10 +7,36 @@
     <label for="">Password
       <input type="password" placeholder="Enter your password" formControlName="password" required />
     </label>
-    <button (click)="login()">Login</button>
+    <button mat-raised-button (click)="login()">Login</button>
   </form>
-  <p>{{loginGroup.value | json}}</p>
-  <p>{{loginGroup.status | json}}</p>
-  <a href="/registration" class="signup">Sign Up</a>
-  <button (click)="loginWithGoogle()">Login with google</button>
+  <a [routerLink]="['/registration']" class="signup">Sign Up</a>
+  <button mat-raised-button (click)="loginWithGoogle()">Login with google</button>
+</div> -->
+
+<div class="mat-form">
+  <p>Material</p>
+  <form class="example-form" [formGroup]="loginGroup">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" [formControl]="emailFormControl">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" [formControl]="passFormControl">
+      <mat-error *ngIf="passFormControl.hasError('minlength') && !passFormControl.hasError('required')">
+        Please enter a more then 6 characters
+      </mat-error>
+      <mat-error *ngIf="passFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="login()">Login</button>
+  <a mat-button [routerLink]="['/registration']" class="signup">Sign Up</a>
+  <button mat-raised-button (click)="loginWithGoogle()">Login with google</button>
 </div>
