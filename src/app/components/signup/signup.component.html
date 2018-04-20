@@ -1,18 +1,47 @@
 <app-notification></app-notification>
-<form [formGroup]="signupGroup">
-  <label for="">Username
-    <input type="text" placeholder="Enter your email" formControlName="username" required />
-  </label>
-  <label for="">Email
-    <input type="email" placeholder="Enter your email" formControlName="email" required />
-  </label>
-  <label for="">Password
-    <input type="password" placeholder="Enter your password" formControlName="password" required />
-  </label>
-  <label for="">Password
-    <input type="password" placeholder="Enter your password" formControlName="confirm_password" required />
-  </label>
-  <button (click)="signup()">Sign up</button>
-</form>
-<p>{{signupGroup.value | json}}</p>
-<p>{{signupGroup.status | json}}</p>
+<div class="mat-form">
+  <form class="example-form" [formGroup]="signupGroup">
+    <mat-form-field class="example-full-width">
+      <input matInput #username placeholder="Display name" [formControl]="userNameFormControl">
+      <mat-hint align="end">{{username.value.length}} / 50</mat-hint>
+      <mat-error *ngIf="userNameFormControl.hasError('maxlength') && !userNameFormControl.hasError('required')">
+        Please enter a less then 50 characters
+      </mat-error>
+      <mat-error *ngIf="userNameFormControl.hasError('minlength') && !userNameFormControl.hasError('required')">
+        Please enter a more then 3 characters
+      </mat-error>
+      <mat-error *ngIf="userNameFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" [formControl]="emailFormControl">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" [formControl]="passFormControl">
+      <mat-error *ngIf="passFormControl.hasError('minlength') && !passFormControl.hasError('required')">
+        Please enter a more then 6 characters
+      </mat-error>
+      <mat-error *ngIf="passFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Confirm password" [formControl]="confPassFormControl">
+      <mat-error *ngIf="confPassFormControl.hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="signup()">Sign Up</button>
+  <a mat-button [routerLink]="['/login']" class="cancel">Cancel</a>
+</div>

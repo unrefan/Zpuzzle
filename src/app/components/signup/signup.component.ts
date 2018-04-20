@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {NotifyService} from '../../services/notify.service';
 import {Auth0Service} from '../../services/auth0.service';
 
@@ -10,6 +10,22 @@ import {Auth0Service} from '../../services/auth0.service';
 })
 export class SignupComponent implements OnInit {
   signupGroup: FormGroup;
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email
+  ]);
+  passFormControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(6)
+  ]);
+  userNameFormControl  = new FormControl('', [
+    Validators.required,
+    Validators.minLength(3),
+    Validators.maxLength(50)
+  ]);
+  confPassFormControl  = new FormControl('', [
+    Validators.required,
+  ]);
   constructor(private fb: FormBuilder,
               private notify: NotifyService,
               private auth: Auth0Service) { }
@@ -26,9 +42,9 @@ export class SignupComponent implements OnInit {
     if (this.signupGroup.status === 'INVALID') {
       this.notify.update('Please enter correct data', 'error');
     } else {
-      const email = this.signupGroup.value['email'];
-      const password = this.signupGroup.value['password'];
-      const username = this.signupGroup.value['username'];
+      const email = this.emailFormControl.value;
+      const password = this.passFormControl.value;
+      const username = this.userNameFormControl.value;
       this.auth.emailSignUp(email, password, username);
     }
   }

@@ -1,20 +1,5 @@
-<!-- <div class="">
-  <app-notification></app-notification>
-  <form [formGroup]="loginGroup">
-    <label for="">Email
-      <input type="email" placeholder="Enter your email" formControlName="email" required />
-    </label>
-    <label for="">Password
-      <input type="password" placeholder="Enter your password" formControlName="password" required />
-    </label>
-    <button mat-raised-button (click)="login()">Login</button>
-  </form>
-  <a [routerLink]="['/registration']" class="signup">Sign Up</a>
-  <button mat-raised-button (click)="loginWithGoogle()">Login with google</button>
-</div> -->
-
+<app-notification></app-notification>
 <div class="mat-form">
-  <p>Material</p>
   <form class="example-form" [formGroup]="loginGroup">
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Email" [formControl]="emailFormControl">
