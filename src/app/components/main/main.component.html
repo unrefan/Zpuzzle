@@ -1,0 +1,23 @@
+
+
+<div class="main">
+  <div class="main__login-holder" [ngStyle]="{'height.px': toggleBtn ? 400: 350}">
+    <div class="main__toggle-btn-holder">
+      <a class="toggle-btn" href="#" (click)="toggle()">
+        <mat-icon>edit</mat-icon>
+      </a>
+    </div>
+
+    <div class="login-holder" [@fadeInOut] *ngIf="!toggleBtn">
+      <app-login-page ></app-login-page>
+    </div>
+    <div class="signup-holder" [@fadeInOut] *ngIf="toggleBtn">
+      <app-signup></app-signup>
+    </div>
+
+
+    <div class="main__reset-pass">
+      <a href="#" mat-button class="reset">forgot pass?</a>
+    </div>
+  </div>
+</div>

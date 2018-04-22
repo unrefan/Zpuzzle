@@ -5,7 +5,12 @@
     'is-success': msg.style == 'success',
     'is-info': msg.style == 'info'
   }">
-    <button class="delete" (click)="notify.clear()"></button>
+
+    <div class="btn-holder">
+      <span class="delete" (click)="notify.clear()">
+        <mat-icon class="delete__icon">close</mat-icon>
+      </span>
+    </div>
     {{ msg.content }}
   </div>
 </div>

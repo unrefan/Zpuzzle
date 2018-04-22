@@ -1,11 +1,11 @@
 <app-navigation></app-navigation>
-<app-notification></app-notification>
 
-<button (click)="startGame()" [disabled]="disabled">Start</button>
+<div class="control-holder">
+  <button class="btn" mat-raised-button (click)="startGame()" [disabled]="disabled">Start</button>
+  <button class="btn" mat-raised-button>Stop</button>
+  <button class="btn" mat-raised-button (click)="openScores()">Mix</button>
+</div>
 <div class="container" (mousedown)="mouseDown($event)" (mousemove)="mouseMove($event)" (mouseup)="mouseup($event)">
-  <div class="" *ngIf="showScore">
-    <scores></scores>
-  </div>
 
   <table class="puzzle">
     <thead></thead>

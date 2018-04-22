@@ -4,11 +4,14 @@ import {NotifyService} from '../../services/notify.service';
 import {Auth0Service} from '../../services/auth0.service';
 
 @Component({
-  selector: 'signup',
+  selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  isVisible1 = false;
+  isVisible2 = false;
+  visibleClass = ['visibility_off', 'visibility'];
   signupGroup: FormGroup;
   emailFormControl = new FormControl('', [
     Validators.required,

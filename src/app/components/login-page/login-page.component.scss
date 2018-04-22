@@ -1,12 +1,14 @@
 .mat-form {
-  background-color: azure;
   display: flex;
   justify-content: center;
   padding: 30px;
-  height: 100%;
 
   &__form-holder {
     display: flex;
+  }
+
+  .btn {
+    color: #fff;
   }
 }
 
@@ -21,6 +23,16 @@
   width: 100%;
 }
 
+.icon-size {
+  font-size: 16px;
+  color:  #673ab7;
+}
+
 .right-holder {
   margin: auto 30px;
+}
+
+.btn-holder {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

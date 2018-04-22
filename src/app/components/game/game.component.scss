@@ -1,7 +1,19 @@
+.control-holder {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+
+  .btn {
+    color: white;
+    margin-right: 15px;
+  }
+}
+
 .container {
   display: flex;
   justify-content: center;
-  padding: 100px;
+  padding: 30px;
 }
 
 .puzzle {

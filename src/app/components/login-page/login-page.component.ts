@@ -11,6 +11,8 @@ import {NotifyService} from '../../services/notify.service';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
+  isVisible = false;
+  visibleClass = ['visibility_off', 'visibility'];
   user: User;
   loginGroup: FormGroup;
   emailFormControl = new FormControl('', [

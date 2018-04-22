@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
 import {ScoreService} from '../../services/score.service';
+import {Score} from '../../entity/score';
 
 @Component({
   selector: 'scores',
@@ -9,10 +10,11 @@ import {ScoreService} from '../../services/score.service';
   styleUrls: ['./scores.component.scss']
 })
 export class ScoresComponent implements OnInit {
-  scores: Observable<any[]>;
+  scores: Score[];
+  sortedScores: Score[];
   constructor(private s: ScoreService) { }
 
   ngOnInit() {
-    this.scores = this.s.getScore('/scores');
+    this.s.getScore('/scores').subscribe(scores => { this.scores = scores; });
   }
 }

@@ -1,4 +1,3 @@
-<app-notification></app-notification>
 <div class="mat-form">
   <form class="example-form" [formGroup]="signupGroup">
     <mat-form-field class="example-full-width">
@@ -26,7 +25,8 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Password" [formControl]="passFormControl">
+      <input matInput type="{{isVisible1 ? 'text' : 'password'}}" placeholder="Password" [formControl]="passFormControl">
+      <mat-icon matSuffix (click)="this.isVisible1 = !this.isVisible1" class="icon-size">{{isVisible1 ? visibleClass[0] : visibleClass[1]}}</mat-icon>
       <mat-error *ngIf="passFormControl.hasError('minlength') && !passFormControl.hasError('required')">
         Please enter a more then 6 characters
       </mat-error>
@@ -36,12 +36,14 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Confirm password" [formControl]="confPassFormControl">
+      <input matInput type="{{isVisible2 ? 'text' : 'password'}}" placeholder="Confirm password" [formControl]="confPassFormControl">
+      <mat-icon matSuffix (click)="this.isVisible2 = !this.isVisible2" class="icon-size">{{isVisible2 ? visibleClass[0] : visibleClass[1]}}</mat-icon>
       <mat-error *ngIf="confPassFormControl.hasError('required')">
       Password is <strong>required</strong>
     </mat-error>
     </mat-form-field>
   </form>
-  <button mat-raised-button (click)="signup()">Sign Up</button>
-  <a mat-button [routerLink]="['/login']" class="cancel">Cancel</a>
+  <div >
+    <button class="example-full-width btn" mat-raised-button (click)="signup()">Sign Up</button>
+  </div>
 </div>

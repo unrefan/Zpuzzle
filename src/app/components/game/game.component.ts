@@ -5,6 +5,9 @@ import {ScoreService} from '../../services/score.service';
 import {Auth0Service} from '../../services/auth0.service';
 import {NavigationComponent} from '../navigation/navigation.component';
 import {User} from '../../entity/user';
+import {MatDialog} from '@angular/material';
+import {ScoresComponent} from '../scores/scores.component';
+import {Score} from '../../entity/score';
 
 @Component({
   selector: 'app-game',
@@ -27,7 +30,8 @@ export class GameComponent implements OnInit, AfterViewInit {
   user: User;
   constructor(private notify: NotifyService,
               private sc: ScoreService,
-              private auth: Auth0Service) { }
+              private auth: Auth0Service,
+              private dialog: MatDialog) { }
 
   ngOnInit() {
     this.puzzleSize = new Array<string>(this.fieldSize);
@@ -79,10 +83,11 @@ export class GameComponent implements OnInit, AfterViewInit {
       if (parent.childNodes.length < 4) {
         const win = new Date().getSeconds();
         const score = win - this.timerId;
+        const name = this.user.displayName;
+        this.sc.pushScore('/scores', new Score(name, score));
+        this.openScores();
         this.notify.update('You win!!! Your score is ' + score + 's', 'info');
         this.showScore = !this.showScore;
-        const name = this.user.displayName;
-        this.sc.pushScore('/scores', { name: name, time: score + 's'});
       }
     }
   }
@@ -97,6 +102,9 @@ export class GameComponent implements OnInit, AfterViewInit {
     this.disabled = !this.disabled;
     this.dragable = !this.dragable;
     this.timerId = new Date().getSeconds();
+  }
+  private openScores():void {
+    this.dialog.open(ScoresComponent);
   }
 }
 class Tile {

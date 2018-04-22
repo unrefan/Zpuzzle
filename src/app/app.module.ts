@@ -24,7 +24,8 @@ import {environment} from '../environments/environment';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule, MatIconModule} from '@angular/material';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatButtonModule} from '@angular/material';
     NotificationComponent,
     NavigationComponent,
     ScoresComponent,
-    SignupComponent
+    SignupComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,12 @@ import {MatButtonModule} from '@angular/material';
     NoopAnimationsModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    ScoresComponent
   ],
   providers: [NotifyService, Auth0Service, AuthGuard, ScoreService],
   bootstrap: [AppComponent]
