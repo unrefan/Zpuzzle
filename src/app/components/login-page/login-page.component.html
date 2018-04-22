@@ -1,27 +1,37 @@
 <app-notification></app-notification>
 <div class="mat-form">
-  <form class="example-form" [formGroup]="loginGroup">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Email" [formControl]="emailFormControl">
-      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
+  <div class="mat-form__form-holder">
+    <div class="left-holder">
+      <form class="example-form" [formGroup]="loginGroup">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" [formControl]="emailFormControl">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Password" [formControl]="passFormControl">
-      <mat-error *ngIf="passFormControl.hasError('minlength') && !passFormControl.hasError('required')">
-        Please enter a more then 6 characters
-      </mat-error>
-      <mat-error *ngIf="passFormControl.hasError('required')">
-        Password is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-  </form>
-  <button mat-raised-button (click)="login()">Login</button>
-  <a mat-button [routerLink]="['/registration']" class="signup">Sign Up</a>
-  <button mat-raised-button (click)="loginWithGoogle()">Login with google</button>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" [formControl]="passFormControl">
+          <mat-error *ngIf="passFormControl.hasError('minlength') && !passFormControl.hasError('required')">
+            Please enter a more then 6 characters
+          </mat-error>
+          <mat-error *ngIf="passFormControl.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <div class="example-form">
+        <button mat-raised-button (click)="login()" class="example-full-width">Login</button>
+        <button mat-raised-button (click)="loginWithGoogle()" class="example-full-width">G+</button>
+      </div>
+    </div>
+    <div class="right-holder">
+      <a mat-button [routerLink]="['/registration']" class="signup">Sign Up</a>
+
+
+    </div>
+  </div>
 </div>

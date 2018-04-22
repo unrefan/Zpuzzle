@@ -1,0 +1,28 @@
+.notification {
+  position: relative;
+  text-align: center;
+  padding: 30px;
+  font-size: 20px;
+  border-right: 5px;
+
+  &__wrapper {
+    padding: 30px;
+  }
+}
+
+.is-danger {
+  background-color: red;
+}
+.is-success {
+  background-color: green;
+}
+.is-info {
+  background-color: gray;
+}
+.delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 15px;
+  height: 15px;
+}

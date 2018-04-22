@@ -1,9 +1,26 @@
+.mat-form {
+  background-color: azure;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  height: 100%;
+
+  &__form-holder {
+    display: flex;
+  }
+}
+
 .example-form {
   min-width: 150px;
-  max-width: 500px;
+  max-width: 250px;
   width: 100%;
+  margin: auto;
 }
 
 .example-full-width {
   width: 100%;
+}
+
+.right-holder {
+  margin: auto 30px;
 }
