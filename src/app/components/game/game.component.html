@@ -1,9 +1,8 @@
 <app-navigation></app-navigation>
 
 <div class="control-holder">
-  <button class="btn" mat-raised-button (click)="startGame()" [disabled]="disabled">Start</button>
-  <button class="btn" mat-raised-button>Stop</button>
-  <button class="btn" mat-raised-button (click)="openScores()">Mix</button>
+  <button class="btn" mat-raised-button (click)="firstGame ? startGame() : newGame()" [disabled]="disabled">{{firstGame ? 'Start': 'New Game'}}</button>
+  <button class="btn" mat-raised-button (click)="mixPieces()">Mix</button>
 </div>
 <div class="container" (mousedown)="mouseDown($event)" (mousemove)="mouseMove($event)" (mouseup)="mouseup($event)">
 
@@ -17,7 +16,7 @@
   </table>
 
   <div class="puzzle__piece-holder">
-    <div [ngDraggable]="dragable" class="puzzle__piece" *ngFor="let pos of puzzlePosition; let i = index"
-         [ngStyle]="{'background-position': pos, 'top.px': 4 * i, 'left.px': 3 * i}" data-id="{{i}}"></div>
+    <div [ngDraggable]="dragable" class="puzzle__piece" *ngFor="let ts of tileStyles; let i = index"
+         [ngStyle]="{'background-position': ts.pos, 'top.px': ts.top, 'left.px': ts.left}" data-id="{{i}}"></div>
   </div>
 </div>
