@@ -27,7 +27,13 @@
   font-size: 16px;
   color:  #673ab7;
 }
-
+.reset {
+  position: relative;
+  bottom: -43px;
+  margin: 0 auto;
+  z-index: 99;
+  left: 28%;
+}
 .right-holder {
   margin: auto 30px;
 }

@@ -1,7 +1,10 @@
 <nav class="nav">
   <div class="user-info nav__user-info" *ngIf="user">
     <p class="user-info__name">{{user.displayName}}</p>
-    <img class="user-info__photo" [src]="user.photoURL" alt="photo {{user.displayName}}" />
+    <div class="user-info__photo">
+      <img *ngIf="user.photoURL" class="user-info__photo" [src]="user.photoURL" alt="photo {{user.displayName}}" />
+      <mat-icon class="user-icon" *ngIf="!user.photoURL">perm_identity</mat-icon>
+    </div>
   </div>
   <a mat-button class="nav__link" (click)="logout()" [routerLink]="['/home']">log out</a>
 </nav>

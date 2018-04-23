@@ -23,6 +23,7 @@
     top: 0;
     background-color: #673ab7;
     z-index: 999;
+    cursor: pointer;
 
     .toggle-btn {
       color: #eee;
@@ -34,7 +35,7 @@
     width: 300px;
     height: 350px;
     position: relative;
-    top: 200px;
+    top: 100px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     transition: height .5s ease-in-out;

@@ -2,7 +2,7 @@
 <div class="mat-form">
   <div class="mat-form__form-holder">
     <div class="left-holder">
-      <form class="example-form" [formGroup]="loginGroup">
+      <div  class="example-form">
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Email" [formControl]="emailFormControl">
           <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -23,7 +23,7 @@
             Password is <strong>required</strong>
           </mat-error>
         </mat-form-field>
-      </form>
+      </div>
       <div class="example-form btn-holder">
         <button mat-raised-button (click)="login()" class="example-full-width btn">Login</button>
       </div>
@@ -31,6 +31,7 @@
       <div class="example-form">
         <button mat-raised-button (click)="loginWithGoogle()" class="example-full-width btn">G+</button>
       </div>
+      <button mat-button class="reset">forgot pass?</button>
     </div>
   </div>
 </div>

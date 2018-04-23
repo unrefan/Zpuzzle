@@ -1,5 +1,5 @@
 <div class="mat-form">
-  <form class="example-form" [formGroup]="signupGroup">
+  <div class="example-form">
     <mat-form-field class="example-full-width">
       <input matInput #username placeholder="Display name" [formControl]="userNameFormControl">
       <mat-hint align="end">{{username.value.length}} / 50</mat-hint>
@@ -42,7 +42,7 @@
       Password is <strong>required</strong>
     </mat-error>
     </mat-form-field>
-  </form>
+  </div>
   <div >
     <button class="example-full-width btn" mat-raised-button (click)="signup()">Sign Up</button>
   </div>

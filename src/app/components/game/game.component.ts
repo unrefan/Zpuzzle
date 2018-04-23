@@ -61,13 +61,13 @@ export class GameComponent implements OnInit, AfterViewInit {
     if (!el) { return null; }
     if ( el.closest('.drop-target') ) {
       for (let item of this.items) {
-        item.style.backgroundColor = 'aliceblue';
+        item.style.backgroundColor = '#aaa';
       }
       (el as HTMLElement).style.backgroundColor = '#eee';
       this.elem = (el as HTMLElement);
     } else {
       for (let item of this.items) {
-        item.style.backgroundColor = 'aliceblue';
+        item.style.backgroundColor = '#aaa';
       }
     }
   }
@@ -83,7 +83,8 @@ export class GameComponent implements OnInit, AfterViewInit {
       parent.removeChild(this.node.element);
       if (parent.childNodes.length < 4) {
         const win = new Date().getSeconds();
-        const score = win - this.timerId;
+        let score = win - this.timerId;
+        if (score < 0) { score += 60; }
         const name = this.user.displayName;
         this.sc.pushScore('/scores', new Score(name, score));
         this.openScores();

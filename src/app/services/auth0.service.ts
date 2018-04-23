@@ -29,9 +29,7 @@ export class Auth0Service {
       });
   }
   logout() {
-    this.afAuth.auth.signOut(); /*.then( () => {
-      this.router.navigate(['home']);
-    });*/
+    this.afAuth.auth.signOut();
   }
 
   loginGoogle() {
@@ -46,6 +44,7 @@ export class Auth0Service {
   emailSignUp(email: string, password: string, displayName: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
+        this.router.navigate(['game']);
         this.notify.update('Welcome!!!', 'success');
         return this.updateUserWithData(user, displayName); // if using firestore
       })
@@ -54,6 +53,7 @@ export class Auth0Service {
   emailLogin(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
+        this.router.navigate(['game']);
         this.notify.update('Welcome!!!', 'success');
         return this.updateUser(user); // if using firestore
       })
