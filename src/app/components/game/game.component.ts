@@ -51,7 +51,7 @@ export class GameComponent implements OnInit, AfterViewInit {
     if (event.which !== 1) { return; }
     const el = event.target.closest('.puzzle__piece');
     if (!el) { return; }
-    this.node = new Tile(el, event.pageX, event.pageY, 'url(\'../../assets/img/kotel.jpg\')', null, null);
+    this.node = new Tile(el, event.pageX, event.pageY, 'url(\'./assets/img/kotel.jpg\')', null, null);
   }
   mouseMove(event) {
     if (!this.node) { return; }
