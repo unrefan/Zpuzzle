@@ -60,13 +60,13 @@ export class GameComponent implements OnInit, AfterViewInit {
     this.node.element.hidden = false;
     if (!el) { return null; }
     if ( el.closest('.drop-target') ) {
-      for (let item of this.items) {
+      for (const item of this.items) {
         item.style.backgroundColor = '#aaa';
       }
       (el as HTMLElement).style.backgroundColor = '#eee';
       this.elem = (el as HTMLElement);
     } else {
-      for (let item of this.items) {
+      for (const item of this.items) {
         item.style.backgroundColor = '#aaa';
       }
     }
@@ -95,7 +95,7 @@ export class GameComponent implements OnInit, AfterViewInit {
     }
   }
   private clearBgImage() {
-    for (let item of this.items) {
+    for (const item of this.items) {
       item.style.backgroundImage = '';
     }
   }
@@ -129,7 +129,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
   mixPieces() {
     if (this.tileStyles.length !== 0) {
-      for (let item of this.tileStyles) {
+      for (const item of this.tileStyles) {
         item.top = this.getRandomInt(0, 100);
         item.left = this.getRandomInt(0, 200);
         item.zIndex = this.getRandomInt(0, 900);

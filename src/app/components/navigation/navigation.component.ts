@@ -8,11 +8,9 @@ import {User} from '../../entity/user';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  user: User;
   constructor(private auth: Auth0Service) { }
 
   ngOnInit() {
-    this.auth.user.subscribe(user => this.user = user);
   }
   logout() {
     this.auth.logout();

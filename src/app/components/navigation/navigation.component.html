@@ -1,5 +1,5 @@
 <nav class="nav">
-  <div class="user-info nav__user-info" *ngIf="user">
+  <div class="user-info nav__user-info" *ngIf="auth.user | async as user">
     <p class="user-info__name">{{user.displayName}}</p>
     <div class="user-info__photo">
       <img *ngIf="user.photoURL" class="user-info__photo" [src]="user.photoURL" alt="photo {{user.displayName}}" />
