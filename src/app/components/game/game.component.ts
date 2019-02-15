@@ -81,7 +81,7 @@ export class GameComponent implements OnInit, AfterViewInit {
       this.dropEl.style.backgroundPosition = this.node.element.style.backgroundPosition;
       const parent = this.node.element.parentNode;
       parent.removeChild(this.node.element);
-      if (parent.childNodes.length < 4) {
+      if (parent.childNodes.length < 2) {
         const win = new Date().getSeconds();
         let score = win - this.timerId;
         if (score < 0) { score += 60; }
