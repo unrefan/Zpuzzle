@@ -27,9 +27,15 @@ export class Auth0Service {
   }
 
   loginGoogle() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then( (credential) => {
-      // this.router.navigate(['game']);
-    }).catch((error) => this.handleError(error) );
+    return new Promise((resolve, reject) => {
+        this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
+            .then(() => {
+                resolve();
+            })
+            .catch(() => {
+                reject();
+            });
+    });
   }
 
   emailSignUp(email: string, password: string, displayName: string) {
