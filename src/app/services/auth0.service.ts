@@ -19,6 +19,9 @@ export class Auth0Service {
   ) {
     this.user = afAuth.user;
   }
+  get authenticated(): boolean {
+      return this.afAuth.authState !== null;
+  }
   logout() {
     this.afAuth.auth.signOut();
   }
