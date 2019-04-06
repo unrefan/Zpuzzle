@@ -25,7 +25,9 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
   }
   loginWithGoogle() {
-    this.auth.loginGoogle();
+    this.auth.loginGoogle().then(() => {
+      this.router.navigate(['game']);
+    });
   }
   login(): void {
       const email = this.emailFormControl.value;
